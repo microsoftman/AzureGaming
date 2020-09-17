@@ -47,6 +47,16 @@ void UAzureGamingGameInstance::LoadMenu()
 
 void UAzureGamingGameInstance::Host()
 {
+	UGameplayStatics::OpenLevel(GetWorld(), "ThirdPersonExampleMap");
+
+	UGameInstance* instance = UGameplayStatics::GetGameInstance(GetWorld());
+	APlayerController* PlayerController = instance->GetFirstLocalPlayerController();
+	if (!ensure(PlayerController != nullptr)) return;
+
+	FInputModeGameOnly InputModeData;
+
+	PlayerController->SetInputMode(InputModeData);
+	PlayerController->bShowMouseCursor = false;
 }
 
 void UAzureGamingGameInstance::Join(const FString& Address)
