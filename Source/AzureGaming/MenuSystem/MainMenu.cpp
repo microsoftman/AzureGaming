@@ -3,9 +3,9 @@
 
 #include "MainMenu.h"
 
-void UMainMenu::SetMenuInterface(IMenuInterface* MenuInterface)
+void UMainMenu::SetMenuInterface(IMenuInterface* menuInterface)
 {
-	this->SetMenuInterface(MenuInterface);
+	this->MenuInterface = menuInterface;
 }
 
 bool UMainMenu::Initialize()
